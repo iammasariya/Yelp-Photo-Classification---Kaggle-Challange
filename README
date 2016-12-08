@@ -16,3 +16,5 @@ python im2rec.py --resize 224 --center_crop True te test_photos
 - to generate feature file for train and test using any MXNet pretrained model
 - I have used Inception-21k in this example
 python Generate_Features.py
+
+2. Business Level feature extraction and classification are in Yelp_flow.R
