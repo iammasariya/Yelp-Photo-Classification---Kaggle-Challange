@@ -1,9 +1,8 @@
-# the codes below this are in R
 library(readr)
 library(xgboost)
 library(foreach)
 library(plyr)
-# read the dataset
+
 tr <- read_csv("train.csv")
 labels <- strsplit(tr$labels," ")
 labels <- sapply(labels, as.integer)
@@ -44,9 +43,9 @@ x <- as.matrix(bfeat.tr[,sel.col])
 x.te <- as.matrix(bfeat.te[,sel.col])
 x.te <- as.matrix(bfeat.te)
 
-----
-  #  3. Classification
-  #ref: classifier chains(https://en.wikipedia.org/wiki/Classifier_chains)
+  ## Classification
+  # Reference: 
+  # Read, J., Pfahringer, B., Holmes, G., & Frank, E. (2011). Classifier chains for multi-label classification. Machine learning, 85(3), 333-359.
   
   # train the binary classifiers
   fits <- llply(0:8, function(i) {
@@ -59,7 +58,7 @@ x.te <- as.matrix(bfeat.te)
   }, .progress="text")
 
 
-#  4. Prediction
+## Prediction
 
 # calculate predictions
 mat.subm <- matrix(0, nrow=nrow(x.te), ncol=9)
