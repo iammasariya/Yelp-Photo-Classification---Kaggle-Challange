@@ -1,19 +1,18 @@
-
-## Yelp Restaurant Photo Classification
+Yelp Restaurant Photo Classification
 The description of the competition and dataset can be found here:
-
+https://www.kaggle.com/c/yelp-restaurant-photo-classification 
 
 1. Photo-level feature extraction
 
-# generate the list of image files for training and testing data
+- generate the list of image files for training and testing data
 python Generate_LST_File.py
 
-# generate mxnet data files(.rec) with following python script 
-# im2rec.py is part of mxnet distribution. see tools folder in mxnet.
+- generate mxnet data files(.rec) with following python script 
+- im2rec.py is part of mxnet distribution. see tools folder in mxnet.
 python im2rec.py --resize 224 --center_crop True tr train_photos
 python im2rec.py --resize 224 --center_crop True te test_photos
 
-# generate photo-level feature using pretrained model.
-# to generate feature file for train and test using any MXNet pretrained model
-# I have used Inception-21k in this example
+- generate photo-level feature using pretrained model.
+- to generate feature file for train and test using any MXNet pretrained model
+- I have used Inception-21k in this example
 python Generate_Features.py
